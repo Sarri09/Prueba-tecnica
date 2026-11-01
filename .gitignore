@@ -3,3 +3,5 @@ node_modules/
 .env.*
 !.env.example
 .vercel/
+fixtures/conversaciones-nuevas.json
+resultados/nuevas-corrida-*.json
