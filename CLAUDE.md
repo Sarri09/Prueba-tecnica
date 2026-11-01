@@ -6,7 +6,7 @@ El enunciado original está en el README del repo de la prueba. Lo innegociable:
 
 ## Decisiones
 
-Todas las decisiones de desarrollo están en `docs/adr/` (ADR001–ADR016). Léelas antes de proponer o escribir código. No contradigas un ADR aprobado sin proponer primero un ADR nuevo que lo reemplace.
+Todas las decisiones de desarrollo están en `docs/adr/` (ADR001–ADR017). Léelas antes de proponer o escribir código. No contradigas un ADR aprobado sin proponer primero un ADR nuevo que lo reemplace.
 
 `fixtures/conversaciones.json` son las 10 conversaciones de la prueba. `fixtures/esperado.json` es la respuesta esperada de cada una según ADR007, ADR008 y ADR016 (el campo `_nota` es solo documentación).
 
