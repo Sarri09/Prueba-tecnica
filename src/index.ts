@@ -34,8 +34,10 @@ export function crearApp(llamar: LlamarGemini) {
         uso,
       });
     } catch (error) {
-      // Solo el tipo de error: el mensaje de la API no se reenvía ni se registra (ADR016).
-      console.error(`${conversacion.id}: falló el análisis: ${error instanceof Error ? error.name : "desconocido"}`);
+      // Solo el tipo y el código de error: el mensaje de la API no se reenvía ni se registra (ADR016).
+      const nombre = error instanceof Error ? error.name : "desconocido";
+      const codigo = (error as { status?: number }).status ?? "sin código";
+      console.error(`${conversacion.id}: falló el análisis: ${nombre} (${codigo})`);
       return c.json({ error: "No se pudo analizar la conversación" }, 502);
     }
   });

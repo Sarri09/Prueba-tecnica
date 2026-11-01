@@ -72,4 +72,13 @@ describe("POST /analizar", () => {
     expect(respuesta.status).toBe(502);
     expect(await respuesta.text()).not.toContain("secreta-123");
   });
+
+  it("registra el código de error de Gemini, pero no su mensaje", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    await enviar(async () => {
+      throw Object.assign(new Error("API key secreta-123 inválida"), { name: "ApiError", status: 403 });
+    }, conversacion);
+    expect(log).toHaveBeenCalledWith("conv-x: falló el análisis: ApiError (403)");
+    log.mockRestore();
+  });
 });
